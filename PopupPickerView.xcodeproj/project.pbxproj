@@ -3,10 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C015EB52445607200A604A5 /* anim1.json in Resources */ = {isa = PBXBuildFile; fileRef = 3C015EB42445607200A604A5 /* anim1.json */; };
+		3C015EB62445619C00A604A5 /* anim1.json in Resources */ = {isa = PBXBuildFile; fileRef = 3C015EB42445607200A604A5 /* anim1.json */; };
+		3C015EBA2445636800A604A5 /* anim2.json in Resources */ = {isa = PBXBuildFile; fileRef = 3C015EB72445636800A604A5 /* anim2.json */; };
+		3C015EBB2445636800A604A5 /* anim3.json in Resources */ = {isa = PBXBuildFile; fileRef = 3C015EB82445636800A604A5 /* anim3.json */; };
+		3C015EBC2445636800A604A5 /* anim4.json in Resources */ = {isa = PBXBuildFile; fileRef = 3C015EB92445636800A604A5 /* anim4.json */; };
+		3C015EBF24456C8300A604A5 /* FeedLikedAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 3C015EBE24456C8300A604A5 /* FeedLikedAnimation.json */; };
 		3C10B2CE2442BE4900BC4BD8 /* PopupPickerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C10B2CD2442BE4900BC4BD8 /* PopupPickerProtocols.swift */; };
 		3C5049112440805600103801 /* PopupPickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C50490F2440805600103801 /* PopupPickerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3C50491E2440806D00103801 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C50491D2440806D00103801 /* AppDelegate.swift */; };
@@ -18,6 +24,9 @@
 		3C5049302440807800103801 /* PopupPickerViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C50492F2440807800103801 /* PopupPickerViewPresenter.swift */; };
 		3C5049322440808000103801 /* PopupPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5049312440808000103801 /* PopupPickerView.swift */; };
 		3C85349A2445577300059922 /* EntityDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8534992445577300059922 /* EntityDecorator.swift */; };
+		3C85349C24455D6F00059922 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C85349B24455D6F00059922 /* Lottie.framework */; platformFilter = ios; };
+		3C8534A124455E7000059922 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C85349B24455D6F00059922 /* Lottie.framework */; };
+		3C8534A224455E7000059922 /* Lottie.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3C85349B24455D6F00059922 /* Lottie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3CF747AA2444211300E14174 /* ImageViewDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF747A92444211300E14174 /* ImageViewDisplayable.swift */; };
 		3CF747AC2444222500E14174 /* LottieAnimationDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF747AB2444222500E14174 /* LottieAnimationDisplayable.swift */; };
 		3CF747AE2444270F00E14174 /* SimpleViewDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF747AD2444270F00E14174 /* SimpleViewDisplayable.swift */; };
@@ -27,7 +36,26 @@
 		3CF747BC24445FE500E14174 /* InsetsDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF747BB24445FE500E14174 /* InsetsDecorator.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3C8534A324455E7000059922 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3C8534A224455E7000059922 /* Lottie.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		3C015EB42445607200A604A5 /* anim1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = anim1.json; sourceTree = "<group>"; };
+		3C015EB72445636800A604A5 /* anim2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = anim2.json; sourceTree = "<group>"; };
+		3C015EB82445636800A604A5 /* anim3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = anim3.json; sourceTree = "<group>"; };
+		3C015EB92445636800A604A5 /* anim4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = anim4.json; sourceTree = "<group>"; };
+		3C015EBE24456C8300A604A5 /* FeedLikedAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FeedLikedAnimation.json; sourceTree = "<group>"; };
 		3C10B2CD2442BE4900BC4BD8 /* PopupPickerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPickerProtocols.swift; sourceTree = "<group>"; };
 		3C50490C2440805600103801 /* PopupPickerView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PopupPickerView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C50490F2440805600103801 /* PopupPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopupPickerView.h; sourceTree = "<group>"; };
@@ -43,6 +71,7 @@
 		3C50492F2440807800103801 /* PopupPickerViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPickerViewPresenter.swift; sourceTree = "<group>"; };
 		3C5049312440808000103801 /* PopupPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPickerView.swift; sourceTree = "<group>"; };
 		3C8534992445577300059922 /* EntityDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityDecorator.swift; sourceTree = "<group>"; };
+		3C85349B24455D6F00059922 /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Lottie.framework; sourceTree = "<group>"; };
 		3CF747A92444211300E14174 /* ImageViewDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewDisplayable.swift; sourceTree = "<group>"; };
 		3CF747AB2444222500E14174 /* LottieAnimationDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimationDisplayable.swift; sourceTree = "<group>"; };
 		3CF747AD2444270F00E14174 /* SimpleViewDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleViewDisplayable.swift; sourceTree = "<group>"; };
@@ -57,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C85349C24455D6F00059922 /* Lottie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C8534A124455E7000059922 /* Lottie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,9 +104,11 @@
 		3C5049022440805600103801 = {
 			isa = PBXGroup;
 			children = (
+				3C85349B24455D6F00059922 /* Lottie.framework */,
 				3C50490E2440805600103801 /* PopupPickerView */,
 				3C50491C2440806D00103801 /* PopupPickerViewExample */,
 				3C50490D2440805600103801 /* Products */,
+				3C85349D24455E5900059922 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +136,7 @@
 		3C50491C2440806D00103801 /* PopupPickerViewExample */ = {
 			isa = PBXGroup;
 			children = (
+				3C8534A424455F7B00059922 /* LottieAnims */,
 				3C50491D2440806D00103801 /* AppDelegate.swift */,
 				3C50491F2440806D00103801 /* SceneDelegate.swift */,
 				3C5049212440806D00103801 /* ViewController.swift */,
@@ -112,6 +146,25 @@
 				3C50492B2440806E00103801 /* Info.plist */,
 			);
 			path = PopupPickerViewExample;
+			sourceTree = "<group>";
+		};
+		3C85349D24455E5900059922 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3C8534A424455F7B00059922 /* LottieAnims */ = {
+			isa = PBXGroup;
+			children = (
+				3C015EBE24456C8300A604A5 /* FeedLikedAnimation.json */,
+				3C015EB72445636800A604A5 /* anim2.json */,
+				3C015EB82445636800A604A5 /* anim3.json */,
+				3C015EB92445636800A604A5 /* anim4.json */,
+				3C015EB42445607200A604A5 /* anim1.json */,
+			);
+			path = LottieAnims;
 			sourceTree = "<group>";
 		};
 		3CF747B224445BBE00E14174 /* DisplayableDecorators */ = {
@@ -185,6 +238,7 @@
 				3C5049172440806D00103801 /* Sources */,
 				3C5049182440806D00103801 /* Frameworks */,
 				3C5049192440806D00103801 /* Resources */,
+				3C8534A324455E7000059922 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -238,6 +292,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C015EB52445607200A604A5 /* anim1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,7 +300,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C015EBB2445636800A604A5 /* anim3.json in Resources */,
+				3C015EB62445619C00A604A5 /* anim1.json in Resources */,
 				3C50492A2440806E00103801 /* LaunchScreen.storyboard in Resources */,
+				3C015EBA2445636800A604A5 /* anim2.json in Resources */,
+				3C015EBF24456C8300A604A5 /* FeedLikedAnimation.json in Resources */,
+				3C015EBC2445636800A604A5 /* anim4.json in Resources */,
 				3C5049272440806E00103801 /* Assets.xcassets in Resources */,
 				3C5049252440806D00103801 /* Main.storyboard in Resources */,
 			);
@@ -434,6 +494,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PopupPickerView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -460,6 +524,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PopupPickerView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -481,6 +549,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JTF8N8VMWY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PopupPickerViewExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -499,6 +571,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JTF8N8VMWY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PopupPickerViewExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

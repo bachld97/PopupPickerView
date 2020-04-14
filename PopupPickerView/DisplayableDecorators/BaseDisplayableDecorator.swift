@@ -23,4 +23,12 @@ class BaseDisplayableDecorator: PopupPickerItemDisplayable {
   init(decoratedItem: PopupPickerItemDisplayable) {
     self.decoratedItem = decoratedItem
   }
+  
+  func onActivated() {
+    decoratedItem.onActivated()
+  }
+  
+  func onDeactivated() {
+    decoratedItem.onDeactivated()
+  }
 }

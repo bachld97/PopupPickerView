@@ -19,7 +19,10 @@ class ViewController: UIViewController, PopupPickerViewDelegate {
     view.backgroundColor = .white
    
     popupPickerPresenter.viewDelegate = self
-    
+    popupPickerPresenter.pickerItemActivatedDimen = 120
+    popupPickerPresenter.pickerItemDeactivatedDimen = 80
+    popupPickerPresenter.pickerItemNormalDimen = 90
+
     activationView.frame = CGRect(x: 100, y: 100, width: 60, height: 60)
     activationView.backgroundColor = .black
     activationView.isUserInteractionEnabled = true
@@ -57,9 +60,9 @@ class ViewController: UIViewController, PopupPickerViewDelegate {
     let mediumInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
     
     return [
-      ImageViewDisplayable(image: UIImage(systemName: "bold")).withBackgroundColor(.black).withCornerStyle(.circular).withEntity("1"),
-      ImageViewDisplayable(image: UIImage(systemName: "italic")).withBackgroundColor(.red).withCornerStyle(.none).withInsets(mediumInsets).withEntity("2"),
-      ImageViewDisplayable(image: UIImage(systemName: "underline")).withCornerStyle(.fixed(radius: 8)).withInsets(smallInsets).withEntity("3")
+      LottieAnimationDisplayable(lottieJsonName: "anim1"),
+      LottieAnimationDisplayable(lottieJsonName: "anim2"),
+      LottieAnimationDisplayable(lottieJsonName: "FeedLikedAnimation")
     ]
   }()
   
