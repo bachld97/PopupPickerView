@@ -19,9 +19,9 @@ class ViewController: UIViewController, PopupPickerViewDelegate {
     view.backgroundColor = .white
    
     popupPickerPresenter.viewDelegate = self
-    popupPickerPresenter.pickerItemActivatedDimen = 120
-    popupPickerPresenter.pickerItemDeactivatedDimen = 80
-    popupPickerPresenter.pickerItemNormalDimen = 90
+    popupPickerPresenter.pickerItemActivatedDimen = 100
+    popupPickerPresenter.pickerItemDeactivatedDimen = 70
+    popupPickerPresenter.pickerItemNormalDimen = 85
 
     activationView.frame = CGRect(x: 100, y: 100, width: 60, height: 60)
     activationView.backgroundColor = .black
@@ -56,18 +56,34 @@ class ViewController: UIViewController, PopupPickerViewDelegate {
   }
   
   private lazy var testDecoratorItems: [PopupPickerItemDisplayable] = {
-    let smallInsets = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
+    let smallInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
     let mediumInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
     
     return [
-      LottieAnimationDisplayable(lottieJsonName: "anim1"),
-      LottieAnimationDisplayable(lottieJsonName: "anim2"),
-      LottieAnimationDisplayable(lottieJsonName: "FeedLikedAnimation")
+      LottieAnimationDisplayable(lottieJsonName: "anim1")
+        .withBackgroundColor(.purple)
+        .withCornerStyle(.fixed(radius: 8))
+        .withInsets(smallInsets),
+      
+      LottieAnimationDisplayable(lottieJsonName: "anim1")
+        .withInsets(smallInsets)
+        .withBackgroundColor(.purple)
+        .withCornerStyle(.fixed(radius: 8)),
+      
+      LottieAnimationDisplayable(lottieJsonName: "anim1")
+        .withInsets(smallInsets)
+        .withCornerStyle(.fixed(radius: 8))
+        .withBackgroundColor(.purple),
+      
+      LottieAnimationDisplayable(lottieJsonName: "anim1")
+        .withCornerStyle(.fixed(radius: 8))
+        .withBackgroundColor(.purple)
+        .withInsets(smallInsets),
     ]
   }()
   
   private lazy var itemBackground: PopupPickerDisplayable = {
-    return SimpleViewDisplayable().withBackgroundColor(.red).withCornerStyle(.circular)
+    return SimpleViewDisplayable().withBackgroundColor(.red)
   }()
 }
 

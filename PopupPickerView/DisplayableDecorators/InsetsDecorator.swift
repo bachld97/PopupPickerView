@@ -9,17 +9,28 @@
 import Foundation
 import UIKit
 
-class InsetsDecorator: BaseDisplayableDecorator {
+class InsetsDecorator: UIView, PopupPickerItemDisplayable {
   private let insets: UIEdgeInsets
+  private let decoratedItem: PopupPickerItemDisplayable
   
   init(insets: UIEdgeInsets, decoratedItem: PopupPickerItemDisplayable) {
     self.insets = insets
-    super.init(decoratedItem: decoratedItem)
+    self.decoratedItem = decoratedItem
+    
+    super.init(frame: .zero)
+    
+    self.addSubview(decoratedItem.uiView)
   }
   
-  override public func layout(in rect: CGRect) {
-    let smallerRect = rect.inset(by: insets)
-    super.layout(in: smallerRect)
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+  func layout(in rect: CGRect) {
+    layoutView(uiView, in: rect)
+    
+    let contentBounds = CGRect(origin: .zero, size: rect.size).inset(by: insets)
+    decoratedItem.layout(in: contentBounds)
   }
 }
 
