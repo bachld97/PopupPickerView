@@ -16,7 +16,6 @@ class BaseDisplayableDecorator: PopupPickerItemDisplayable {
   
   func layout(in rect: CGRect) {
     decoratedItem.layout(in: rect)
-    layoutView(uiView, in: rect)
   }
   
   var decoratedItem: PopupPickerItemDisplayable
