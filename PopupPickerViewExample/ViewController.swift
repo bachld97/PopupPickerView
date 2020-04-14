@@ -17,12 +17,12 @@ class ViewController: UIViewController, PopupPickerViewDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .white
-   
+    
     popupPickerPresenter.viewDelegate = self
-    popupPickerPresenter.pickerItemActivatedDimen = 100
-    popupPickerPresenter.pickerItemDeactivatedDimen = 70
-    popupPickerPresenter.pickerItemNormalDimen = 85
-
+    popupPickerPresenter.pickerItemActivatedDimen = 100 / 2
+    popupPickerPresenter.pickerItemDeactivatedDimen = 70 / 2
+    popupPickerPresenter.pickerItemNormalDimen = 85 / 2
+    
     activationView.frame = CGRect(x: 100, y: 100, width: 60, height: 60)
     activationView.backgroundColor = .black
     activationView.isUserInteractionEnabled = true
@@ -61,29 +61,35 @@ class ViewController: UIViewController, PopupPickerViewDelegate {
     
     return [
       LottieAnimationDisplayable(lottieJsonName: "anim1")
-        .withBackgroundColor(.purple)
-        .withCornerStyle(.fixed(radius: 8))
+        .withBackgroundColor(.black)
+        .withCornerStyle(.circular)
+        .withEntity(ReactionEntity(id: "1"))
         .withInsets(smallInsets),
       
       LottieAnimationDisplayable(lottieJsonName: "anim1")
         .withInsets(smallInsets)
-        .withBackgroundColor(.purple)
-        .withCornerStyle(.fixed(radius: 8)),
+        .withBackgroundColor(.blue)
+        .withCornerStyle(.circular)
+        .withEntity(ReactionEntity(id: "2")),
       
-      LottieAnimationDisplayable(lottieJsonName: "anim1")
-        .withInsets(smallInsets)
-        .withCornerStyle(.fixed(radius: 8))
-        .withBackgroundColor(.purple),
+      LottieAnimationDisplayable(lottieJsonName: "FeedLikedAnimation").withEntity(ReactionEntity(id: "3")),
       
-      LottieAnimationDisplayable(lottieJsonName: "anim1")
-        .withCornerStyle(.fixed(radius: 8))
-        .withBackgroundColor(.purple)
+      ImageViewDisplayable(image: UIImage(named: "tickBadge"))
+        .withBackgroundColor(.green)
         .withInsets(smallInsets),
+      
+      ImageViewDisplayable(image: UIImage(named: "tickBadge"))
+        .withInsets(smallInsets)
+        .withBackgroundColor(.green),
+      
+      ImageViewDisplayable(image: UIImage(named: "tickBadge"))
     ]
   }()
-  
   private lazy var itemBackground: PopupPickerDisplayable = {
     return SimpleViewDisplayable().withBackgroundColor(.red)
   }()
 }
 
+struct ReactionEntity {
+  let id: String
+}
