@@ -14,6 +14,7 @@
 		3C015EBC2445636800A604A5 /* anim4.json in Resources */ = {isa = PBXBuildFile; fileRef = 3C015EB92445636800A604A5 /* anim4.json */; };
 		3C015EBF24456C8300A604A5 /* FeedLikedAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 3C015EBE24456C8300A604A5 /* FeedLikedAnimation.json */; };
 		3C10B2CE2442BE4900BC4BD8 /* PopupPickerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C10B2CD2442BE4900BC4BD8 /* PopupPickerProtocols.swift */; };
+		3C4D9AD92445AB97007DF936 /* ShadowDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4D9AD82445AB97007DF936 /* ShadowDecorator.swift */; };
 		3C5049112440805600103801 /* PopupPickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C50490F2440805600103801 /* PopupPickerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3C50491E2440806D00103801 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C50491D2440806D00103801 /* AppDelegate.swift */; };
 		3C5049222440806D00103801 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5049212440806D00103801 /* ViewController.swift */; };
@@ -69,6 +70,7 @@
 		3C015EB92445636800A604A5 /* anim4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = anim4.json; sourceTree = "<group>"; };
 		3C015EBE24456C8300A604A5 /* FeedLikedAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FeedLikedAnimation.json; sourceTree = "<group>"; };
 		3C10B2CD2442BE4900BC4BD8 /* PopupPickerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPickerProtocols.swift; sourceTree = "<group>"; };
+		3C4D9AD82445AB97007DF936 /* ShadowDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowDecorator.swift; sourceTree = "<group>"; };
 		3C50490C2440805600103801 /* PopupPickerView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PopupPickerView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C50490F2440805600103801 /* PopupPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopupPickerView.h; sourceTree = "<group>"; };
 		3C5049102440805600103801 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				3CF747A92444211300E14174 /* ImageViewDisplayable.swift */,
 				3CF747AB2444222500E14174 /* LottieAnimationDisplayable.swift */,
 				3CF747AD2444270F00E14174 /* SimpleViewDisplayable.swift */,
+				3C4D9AD82445AB97007DF936 /* ShadowDecorator.swift */,
 			);
 			path = SimpleDisplayables;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				3CF747B624445C1800E14174 /* BaseDisplayableDecorator.swift in Sources */,
 				3CF747AA2444211300E14174 /* ImageViewDisplayable.swift in Sources */,
 				3CF747B424445BC700E14174 /* BackgroundColorDecorator.swift in Sources */,
+				3C4D9AD92445AB97007DF936 /* ShadowDecorator.swift in Sources */,
 				3CF747AC2444222500E14174 /* LottieAnimationDisplayable.swift in Sources */,
 				3CF747AE2444270F00E14174 /* SimpleViewDisplayable.swift in Sources */,
 				3CF747B824445D5C00E14174 /* CornerStyleDecorator.swift in Sources */,

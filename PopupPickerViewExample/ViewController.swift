@@ -72,21 +72,30 @@ class ViewController: UIViewController, PopupPickerViewDelegate {
         .withCornerStyle(.circular)
         .withEntity(ReactionEntity(id: "2")),
       
-      LottieAnimationDisplayable(lottieJsonName: "FeedLikedAnimation").withEntity(ReactionEntity(id: "3")),
+      LottieAnimationDisplayable(lottieJsonName: "FeedLikedAnimation")
+        .withEntity(ReactionEntity(id: "3")),
       
       ImageViewDisplayable(image: UIImage(named: "tickBadge"))
         .withBackgroundColor(.green)
-        .withInsets(smallInsets),
+        .withInsets(smallInsets)
+        .withShadow(.defaultShadow)
+        .withEntity(ReactionEntity(id: "4")),
       
       ImageViewDisplayable(image: UIImage(named: "tickBadge"))
         .withInsets(smallInsets)
-        .withBackgroundColor(.green),
+        .withBackgroundColor(.green)
+        .withEntity(ReactionEntity(id: "5")),
       
       ImageViewDisplayable(image: UIImage(named: "tickBadge"))
+        .withEntity(ReactionEntity(id: "6")),
     ]
   }()
+  
   private lazy var itemBackground: PopupPickerDisplayable = {
-    return SimpleViewDisplayable().withBackgroundColor(.red)
+    return SimpleViewDisplayable()
+      .withBackgroundColor(.white)
+      .withCornerStyle(.fixed(radius: 8))
+      .withShadow(.defaultShadow)
   }()
 }
 
