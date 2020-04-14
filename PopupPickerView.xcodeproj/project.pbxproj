@@ -16,13 +16,14 @@
 		3C10B2CE2442BE4900BC4BD8 /* PopupPickerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C10B2CD2442BE4900BC4BD8 /* PopupPickerProtocols.swift */; };
 		3C5049112440805600103801 /* PopupPickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C50490F2440805600103801 /* PopupPickerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3C50491E2440806D00103801 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C50491D2440806D00103801 /* AppDelegate.swift */; };
-		3C5049202440806D00103801 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C50491F2440806D00103801 /* SceneDelegate.swift */; };
 		3C5049222440806D00103801 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5049212440806D00103801 /* ViewController.swift */; };
 		3C5049252440806D00103801 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C5049232440806D00103801 /* Main.storyboard */; };
 		3C5049272440806E00103801 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C5049262440806E00103801 /* Assets.xcassets */; };
 		3C50492A2440806E00103801 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C5049282440806E00103801 /* LaunchScreen.storyboard */; };
 		3C5049302440807800103801 /* PopupPickerViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C50492F2440807800103801 /* PopupPickerViewPresenter.swift */; };
 		3C5049322440808000103801 /* PopupPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5049312440808000103801 /* PopupPickerView.swift */; };
+		3C6DB3002445742E00204CB8 /* PopupPickerView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C50490C2440805600103801 /* PopupPickerView.framework */; };
+		3C6DB3012445742E00204CB8 /* PopupPickerView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3C50490C2440805600103801 /* PopupPickerView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3C85349A2445577300059922 /* EntityDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8534992445577300059922 /* EntityDecorator.swift */; };
 		3C85349C24455D6F00059922 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C85349B24455D6F00059922 /* Lottie.framework */; platformFilter = ios; };
 		3C8534A124455E7000059922 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C85349B24455D6F00059922 /* Lottie.framework */; };
@@ -36,6 +37,16 @@
 		3CF747BC24445FE500E14174 /* InsetsDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF747BB24445FE500E14174 /* InsetsDecorator.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3C6DB3022445742E00204CB8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3C5049032440805600103801 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3C50490B2440805600103801;
+			remoteInfo = PopupPickerView;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		3C8534A324455E7000059922 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -43,6 +54,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				3C6DB3012445742E00204CB8 /* PopupPickerView.framework in Embed Frameworks */,
 				3C8534A224455E7000059922 /* Lottie.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -62,7 +74,6 @@
 		3C5049102440805600103801 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C50491B2440806D00103801 /* PopupPickerViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopupPickerViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C50491D2440806D00103801 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3C50491F2440806D00103801 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3C5049212440806D00103801 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3C5049242440806D00103801 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3C5049262440806E00103801 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C6DB3002445742E00204CB8 /* PopupPickerView.framework in Frameworks */,
 				3C8534A124455E7000059922 /* Lottie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,7 +150,6 @@
 			children = (
 				3C8534A424455F7B00059922 /* LottieAnims */,
 				3C50491D2440806D00103801 /* AppDelegate.swift */,
-				3C50491F2440806D00103801 /* SceneDelegate.swift */,
 				3C5049212440806D00103801 /* ViewController.swift */,
 				3C5049232440806D00103801 /* Main.storyboard */,
 				3C5049262440806E00103801 /* Assets.xcassets */,
@@ -243,6 +254,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3C6DB3032445742E00204CB8 /* PBXTargetDependency */,
 			);
 			name = PopupPickerViewExample;
 			productName = PopupPickerViewExample;
@@ -338,11 +350,18 @@
 			files = (
 				3C5049222440806D00103801 /* ViewController.swift in Sources */,
 				3C50491E2440806D00103801 /* AppDelegate.swift in Sources */,
-				3C5049202440806D00103801 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3C6DB3032445742E00204CB8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3C50490B2440805600103801 /* PopupPickerView */;
+			targetProxy = 3C6DB3022445742E00204CB8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3C5049232440806D00103801 /* Main.storyboard */ = {
@@ -500,6 +519,7 @@
 				);
 				INFOPLIST_FILE = PopupPickerView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -530,6 +550,7 @@
 				);
 				INFOPLIST_FILE = PopupPickerView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -554,6 +575,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = PopupPickerViewExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -576,6 +598,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = PopupPickerViewExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
