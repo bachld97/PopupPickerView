@@ -5,7 +5,7 @@ This library helps ease the creation of item picker view in the form similar to 
 
 * 1. Installation
 ** 1.1. Dependencies
-- The framework depends on Lottie animation framework (the version written in Swift)
+- The framework depends on [[https://github.com/airbnb/lottie-ios][Lottie (Swift version)]].
 - That's about it..
 
 ** 1.2. Now let's build
