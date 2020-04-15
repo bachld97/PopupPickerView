@@ -3,6 +3,8 @@
 
 This library helps ease the creation of item picker view in the form similar to Facebook's post reaction picker.
 
+[[./demo.gif]]
+
 * 1. Installation
 ** 1.1. Dependencies
 - The framework depends on [[https://github.com/airbnb/lottie-ios][Lottie (Swift version)]].
