@@ -1,0 +1,142 @@
+#+STARTUP: indent
+#+TITLE: PopupPickerView Documentation
+
+This library helps ease the creation of item picker view in the form similar to Facebook's post reaction picker.
+
+* 1. Installation
+** 1.1. Dependencies
+- The framework depends on Lottie animation framework (the version written in Swift)
+- That's about it..
+
+** 1.2. Now let's build
+1. Clone the project
+2. Build the framework
+3. Link to your target
+4. Embed Lottie framework
+
+** 1.3. What's to do next? [0/2]
+- [ ] Create build script to simplify build process
+- [ ] Provide Pod installation solution
+
+* 2. Straightforward usage
+Have a look at /PopupPickerViewExample/ for a quick start. You can start experimenting around with the settings. 
+
+** 2.1. Create picker presenter
+Simply create it with constructor, there are a few config which can be set.
+
+#+BEGIN_SRC swift
+  popupPickerPresenter = PopupPickerPresenter()
+  popupPickerPresenter.viewDelegate = self
+  popupPickerPresenter.pickerItemActivatedDimen = 50
+  popupPickerPresenter.pickerItemDeactivatedDimen = 45
+  popupPickerPresenter.pickerItemNormalDimen = 40
+#+END_SRC
+
+** 2.2. Create picker item
+Now, we create items for the picker to show. There are a few predetermined decorators one can use to create picker item.
+The items must confirm to protocol =PopupPickerItemDisplayable=.
+
+#+BEGIN_SRC swift
+  private lazy var items: [PopupPickerItemDisplayable] = {
+      return [
+        LottieAnimationDisplayable(lottieJsonName: "anim1")
+          .withBackgroundColor(.black)
+          .withCornerStyle(.circular)
+          .withEntity(ItemEntity(id: "1"))
+          .withInsets(smallInsets),
+
+        LottieAnimationDisplayable(lottieJsonName: "anim1")
+          .withInsets(smallInsets)
+          .withBackgroundColor(.blue)
+          .withCornerStyle(.circular)
+          .withEntity(ItemEntity(id: "2")),
+
+        LottieAnimationDisplayable(lottieJsonName: "FeedLikedAnimation")
+          .withEntity(ItemEntity(id: "3")),
+
+        ImageViewDisplayable(image: UIImage(named: "tickBadge"))
+          .withBackgroundColor(.green)
+          .withInsets(smallInsets)
+          .withShadow(.defaultShadow)
+          .withEntity(ItemEntity(id: "4")),
+
+        ImageViewDisplayable(image: UIImage(named: "tickBadge"))
+          .withInsets(smallInsets)
+          .withBackgroundColor(.green)
+          .withEntity(ItemEntity(id: "5")),
+
+        ImageViewDisplayable(image: UIImage(named: "tickBadge"))
+          .withEntity(ItemEntity(id: "6")),
+      ]
+  }()
+#+END_SRC
+
+Each call to =with*(_:)= will affects the appearance of the item, except for =withEntity(_:)= call.
+=withEntity(_:)= links current item with an object, this can later be used to determine which item was chosen.
+More on that in next sections.
+
+Note that the order in which we call =with*(_:)= affects the outcome. 
+Latter =with*(_:)= statements would be executed first.
+
+** 2.3. Create picker background
+We can create the background view in the exact same way we create item view.
+Background view must conform to protocol =PopupPickerDisplayable=, which is the superclass for =PopupPickerItemDisplayable=.
+If we use =PopupPickerItemDisplayable= in place of =PopupPickerDisplayable=, =onActivated()= and =onDeactivated()= will not be called.
+
+#+BEGIN_SRC swift
+  let backgroundItem = SimpleViewDisplayable()
+     .withBackgroundColor(.white)
+     .withCornerStyle(.fixed(radius: 8))
+     .withShadow(.defaultShadow)
+#+END_SRC
+
+** 2.4. Show the picker
+Now show the picker using above items and background.
+The use of =popupPickerPresenter= is associated with a =UILongPressGestureRecognizer=, two =UIView= by desgin.
+
+#+BEGIN_SRC swift
+  @objc private func handleButtonLongPress(_ gesture: UILongPressGestureRecognizer) {
+      popupPickerPresenter.showPicker(gesture: gesture,
+                                      items: items,
+                                      itemBackground: backgroundItem,
+                                      viewActivatingPicker: activationView,
+                                      viewToInsertPicker: self.view)
+  }
+#+END_SRC
+
+=viewToInsertPicker= is the superview where =PopupPickerPresenter= use to add subviews.
+Be careful to add your own subviews after call to  =showPicker(...)= above as newly added subview may obstruct vision over the picker view items.
+
+** 2.5. PopupPresenterViewDelegate
+
+In section 2.1, we set a viewDelegate to =popupPickerPresenter=, this section will explain its functionality.
+
+#+BEGIN_SRC swift
+  func calculateOriginForPoupPicker(pickerSize: CGSize) -> CGPoint {
+      let minX = (self.view.bounds.width - pickerSize.width) / 2
+      let minY: CGFloat = 160 + 16
+      return CGPoint(x: minX, y: minY)
+  }
+
+  func didSelectPickerItem(_ item: PopupPickerItemDisplayable?) {
+      guard let entity = item?.extractEntity() as? ItemEntity else {
+          return
+      }
+
+      print("Did pick item with entity", entity)
+  }
+
+#+END_SRC
+
+As the name suggests, =popupPickerPresenter= relies on =calculateOriginForPoupPicker(pickerSize:)= to decide where to show the =pickerView=.
+=didSelectPickerItem(_:)= will be called after an item is selected.
+We can extract entity and cast it to suitable type before using.
+Note that if you create multiple entities (e.g: use multiple =withEntity(_:)= calls), the entity extracted using =extractEntity()= will be the latest one.
+It does not matter where in the =with*(:_)= chain we attach the entity, =extractEntity()= will recursively look for the =EntityDecorator= if available.
+If no =EntityDecorator= is attached, =extractEntity()= returns =nil=.
+
+* 3. Extensibility
+
+Have a look at the provided =*Decorater= classes to get a hang of how to create custom decorators.
+
+Happy Coding!
