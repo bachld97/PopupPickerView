@@ -32,15 +32,15 @@ public class PopupPickerPresenter {
   
   private var isAllowSecondChance = true
   
-  private var currentGesture: UILongPressGestureRecognizer?
+  private var currentGesture: UIGestureRecognizer?
   
   private lazy var longPressSelectReaction: UILongPressGestureRecognizer = {
     let gesture = UILongPressGestureRecognizer(
-      target: self, action: #selector(onLongPressSelectReaction(_:))
+      target: self, action: #selector(onGestureSelectReaction(_:))
     )
     gesture.minimumPressDuration = 0
     return gesture
-}()
+  }()
   
   public func cancelPicker(animated: Bool, completion: ((Bool) -> Void)?) {
     currentGesture?.state = .cancelled
@@ -48,11 +48,22 @@ public class PopupPickerPresenter {
     pickerView.performExit(animated: animated, completion: completion)
   }
   
-  public func showPicker(gesture: UILongPressGestureRecognizer,
-                  items: [PopupPickerItemDisplayable],
-                  itemBackground: PopupPickerDisplayable,
-                  viewActivatingPicker: UIView,
-                  viewToInsertPicker: UIView) {
+  public func showPicker(gesture: UIGestureRecognizer?,
+                         items: [PopupPickerItemDisplayable],
+                         itemBackground: PopupPickerDisplayable,
+                         viewActivatingPicker: UIView,
+                         viewToInsertPicker: UIView) {
+    guard let gesture = gesture else {
+      isAllowSecondChance = true
+      currentGesture = longPressSelectReaction
+      notifyMaxItemSize(to: items)
+      displayPickerContent(in: viewToInsertPicker,
+                           itemsToDisplay: items,
+                           itemBackground: itemBackground,
+                           relativeToView: viewActivatingPicker)
+      return
+    }
+    
     switch gesture.state {
       case .began:
         isAllowSecondChance = true
@@ -63,7 +74,7 @@ public class PopupPickerPresenter {
                              itemBackground: itemBackground,
                              relativeToView: viewActivatingPicker)
       default:
-        onLongPressSelectReaction(gesture)
+        onGestureSelectReaction(gesture)
     }
   }
   
@@ -73,7 +84,7 @@ public class PopupPickerPresenter {
     }
   }
   
-  @objc private func onLongPressSelectReaction(_ gesture: UILongPressGestureRecognizer) {
+  @objc private func onGestureSelectReaction(_ gesture: UIGestureRecognizer) {
     guard gesture == currentGesture else {
       return
     }
@@ -90,9 +101,9 @@ public class PopupPickerPresenter {
   }
   
   private func displayPickerContent(in superview: UIView,
-                            itemsToDisplay: [PopupPickerItemDisplayable],
-                            itemBackground: PopupPickerDisplayable,
-                            relativeToView anchorView: UIView) {
+                                    itemsToDisplay: [PopupPickerItemDisplayable],
+                                    itemBackground: PopupPickerDisplayable,
+                                    relativeToView anchorView: UIView) {
     pickerView.displayContent(in: superview,
                               items: itemsToDisplay,
                               itemBackground: itemBackground,

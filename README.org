@@ -36,7 +36,7 @@ Simply create it with constructor, there are a few config which can be set.
 
 ** 2.2. Create picker item
 Now, we create items for the picker to show. There are a few predetermined decorators one can use to create picker item.
-The items must confirm to protocol =PopupPickerItemDisplayable=.
+The items must confirm to protocol ~PopupPickerItemDisplayable~.
 
 #+BEGIN_SRC swift
   private lazy var items: [PopupPickerItemDisplayable] = {
@@ -73,17 +73,17 @@ The items must confirm to protocol =PopupPickerItemDisplayable=.
   }()
 #+END_SRC
 
-Each call to =with*(_:)= will affects the appearance of the item, except for =withEntity(_:)= call.
-=withEntity(_:)= links current item with an object, this can later be used to determine which item was chosen.
+Each call to ~with*(_:)~ will affects the appearance of the item, except for ~withEntity(_:)~ call.
+~withEntity(_:)~ links current item with an object, this can later be used to determine which item was chosen.
 More on that in next sections.
 
-Note that the order in which we call =with*(_:)= affects the outcome. 
-Latter =with*(_:)= statements would be executed first.
+Note that the order in which we call ~with*(_:)~ affects the outcome.
+Latter ~with*(_:)~ statements would be executed first.
 
 ** 2.3. Create picker background
 We can create the background view in the exact same way we create item view.
-Background view must conform to protocol =PopupPickerDisplayable=, which is the superclass for =PopupPickerItemDisplayable=.
-If we use =PopupPickerItemDisplayable= in place of =PopupPickerDisplayable=, =onActivated()= and =onDeactivated()= will not be called.
+Background view must conform to protocol ~PopupPickerDisplayable~, which is the superclass for ~PopupPickerItemDisplayable~.
+If we use ~PopupPickerItemDisplayable~ in place of ~PopupPickerDisplayable~, ~onActivated()~ and ~onDeactivated()~ will not be called.
 
 #+BEGIN_SRC swift
   let backgroundItem = SimpleViewDisplayable()
@@ -94,11 +94,12 @@ If we use =PopupPickerItemDisplayable= in place of =PopupPickerDisplayable=, =on
 
 ** 2.4. Show the picker
 Now show the picker using above items and background.
-The use of =popupPickerPresenter= is associated with a =UILongPressGestureRecognizer=, two =UIView= by desgin.
+The use of ~popupPickerPresenter~ is associated with a ~UIGestureRecognizer~, two ~UIView~ by desgin.
+If you wish to use ~popupPickerPresenter~ without a long press gesture, pass ~nil~ to gesture
 
 #+BEGIN_SRC swift
   @objc private func handleButtonLongPress(_ gesture: UILongPressGestureRecognizer) {
-      popupPickerPresenter.showPicker(gesture: gesture,
+      popupPickerPresenter.showPicker(gesture: gesture /* or nil **/,
                                       items: items,
                                       itemBackground: backgroundItem,
                                       viewActivatingPicker: activationView,
@@ -106,12 +107,12 @@ The use of =popupPickerPresenter= is associated with a =UILongPressGestureRecogn
   }
 #+END_SRC
 
-=viewToInsertPicker= is the superview where =PopupPickerPresenter= use to add subviews.
-Be careful to add your own subviews after call to  =showPicker(...)= above as newly added subview may obstruct vision over the picker view items.
+~viewToInsertPicker~ is the superview where ~PopupPickerPresenter~ use to add subviews.
+Be careful to add your own subviews after call to  ~showPicker(...)~ above as newly added subview may obstruct vision over the picker view items.
 
 ** 2.5. PopupPresenterViewDelegate
 
-In section 2.1, we set a viewDelegate to =popupPickerPresenter=, this section will explain its functionality.
+In section 2.1, we set a viewDelegate to ~popupPickerPresenter~, this section will explain its functionality.
 
 #+BEGIN_SRC swift
   func calculateOriginForPoupPicker(pickerSize: CGSize) -> CGPoint {
@@ -130,15 +131,15 @@ In section 2.1, we set a viewDelegate to =popupPickerPresenter=, this section wi
 
 #+END_SRC
 
-As the name suggests, =popupPickerPresenter= relies on =calculateOriginForPoupPicker(pickerSize:)= to decide where to show the =pickerView=.
-=didSelectPickerItem(_:)= will be called after an item is selected.
+As the name suggests, ~popupPickerPresenter~ relies on ~calculateOriginForPoupPicker(pickerSize:)~ to decide where to show the ~pickerView~.
+~didSelectPickerItem(_:)~ will be called after an item is selected.
 We can extract entity and cast it to suitable type before using.
-Note that if you create multiple entities (e.g: use multiple =withEntity(_:)= calls), the entity extracted using =extractEntity()= will be the latest one.
-It does not matter where in the =with*(:_)= chain we attach the entity, =extractEntity()= will recursively look for the =EntityDecorator= if available.
-If no =EntityDecorator= is attached, =extractEntity()= returns =nil=.
+Note that if you create multiple entities (e.g: use multiple ~withEntity(_:)~ calls), the entity extracted using ~extractEntity()~ will be the latest one.
+It does not matter where in the ~with*(:_)~ chain we attach the entity, ~extractEntity()~ will recursively look for the ~EntityDecorator~ if available.
+If no ~EntityDecorator~ is attached, ~extractEntity()~ returns ~nil~.
 
 * 3. Extensibility
 
-Have a look at the provided =*Decorater= classes to get a hang of how to create custom decorators.
+Have a look at the provided ~*Decorater~ classes to get a hang of how to create custom decorators.
 
 Happy Coding!

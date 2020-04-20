@@ -27,8 +27,11 @@ class ViewController: UIViewController, PopupPickerViewDelegate {
     activationView.backgroundColor = .black
     activationView.isUserInteractionEnabled = true
     
-    let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleButtonLongPress(_:)))
-    activationView.addGestureRecognizer(longPressGesture)
+//    let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(beginShowPicker))
+//    activationView.addGestureRecognizer(longPressGesture)
+    
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(beginShowPicker))
+    activationView.addGestureRecognizer(tapGesture)
     
     self.view.addSubview(activationView)
   }
@@ -47,8 +50,8 @@ class ViewController: UIViewController, PopupPickerViewDelegate {
     print("Did pick item with entity", entity)
   }
   
-  @objc private func handleButtonLongPress(_ gesture: UILongPressGestureRecognizer) {
-    popupPickerPresenter.showPicker(gesture: gesture,
+  @objc private func beginShowPicker(_ gesture: UIGestureRecognizer) {
+    popupPickerPresenter.showPicker(gesture: nil,
                                     items: testDecoratorItems,
                                     itemBackground: itemBackground,
                                     viewActivatingPicker: activationView,
